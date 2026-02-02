@@ -116,4 +116,18 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Adam adapts learning rates for faster convergence
 - Fixed random seed ensures reproducibility across runs
 
+---
+## Evaluation Strategy
 
+**Metrics used:**
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
+- Confusion Matrix
+
+**Rationale:**
+- Medical datasets are often class-imbalanced
+- Recall is prioritized to minimize false negatives
+- ROC-AUC provides threshold-independent assessment
