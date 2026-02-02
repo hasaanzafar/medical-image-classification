@@ -103,3 +103,17 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Batch normalization after each convolution
 - Global average pooling instead of fully connected layers
 
+---
+
+## Training Strategy
+
+**Loss function:** Cross-Entropy Loss  
+**Optimizer:** Adam  
+**Learning rate:** 1e-3
+
+**Rationale:**
+- Cross-entropy is standard for classification
+- Adam adapts learning rates for faster convergence
+- Fixed random seed ensures reproducibility across runs
+
+
