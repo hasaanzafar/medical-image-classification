@@ -40,10 +40,13 @@ Detailed quantitative and qualitative analysis provided in notebooks and figures
 Detailed architectural and experimental design choices are documented in  
 [`docs/design.md`](docs/design.md).
 
-To reproduce results:
-1. Download the dataset from Kaggle
-2. Extract it into `data/raw/chest_xray/`
-3. Run `train.py` and `evaluate.py`
+## Dataset
+
+This project uses the **Chest X-Ray Images (Pneumonia)** dataset:
+
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+
+Due to size constraints, raw images are not included in this repository.
 
 To reproduce results:
 1. Download the dataset from Kaggle
