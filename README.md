@@ -40,3 +40,13 @@ Detailed quantitative and qualitative analysis provided in notebooks and figures
 Detailed architectural and experimental design choices are documented in  
 [`docs/design.md`](docs/design.md).
 
+To reproduce results:
+1. Download the dataset from Kaggle
+2. Extract it into `data/raw/chest_xray/`
+3. Run `train.py` and `evaluate.py`
+
+To reproduce results:
+1. Download the dataset from Kaggle
+2. Extract it into `data/raw/chest_xray/`
+3. Run `train.py` and `evaluate.py`
+
