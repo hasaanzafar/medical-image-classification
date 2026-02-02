@@ -84,7 +84,22 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Fixed random seeds
 - Deterministic dataloading where possible
 - Explicit dependency versions
+  
 
 ---
+---
 
-This document will evolve as experiments and model designs are refined.
+## Model Architecture
+
+**Chosen model:** Custom lightweight CNN
+
+**Rationale:**
+- Medical imaging datasets are often small
+- Shallow architectures reduce overfitting
+- Explicit architecture improves interpretability
+
+**Key design choices:**
+- Three convolutional blocks with increasing channel depth
+- Batch normalization after each convolution
+- Global average pooling instead of fully connected layers
+
