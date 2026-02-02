@@ -34,3 +34,9 @@ Raw images are not included due to size constraints.
 ## Results
 
 Detailed quantitative and qualitative analysis provided in notebooks and figures.
+
+## Design Decisions
+
+Detailed architectural and experimental design choices are documented in  
+[`docs/design.md`](docs/design.md).
+
