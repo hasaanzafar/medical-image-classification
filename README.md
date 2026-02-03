@@ -5,12 +5,10 @@ This repository contains an end-to-end deep learning pipeline for medical image 
 The project emphasizes **robust evaluation, reproducibility, and practical deployment considerations**, rather than optimizing for accuracy alone.
 
 
-
 ## Motivation
 
 Medical imaging datasets are often class-imbalanced, and false negatives can carry high real-world cost.
 This project explores how architectural choices, transfer learning, and evaluation metrics impact performance in a medical screening context, with an emphasis on **high recall for critical classes**.
-
 
 
 ## Dataset
@@ -28,9 +26,6 @@ chest_xray/
 ├── val/
 └── test/
 
-
-
-
 ## Approach
 
 - Image preprocessing and normalization
@@ -39,16 +34,12 @@ chest_xray/
 - Evaluation using accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrices
 - Model deployment using FastAPI for inference
 
-
-
 ## Reproducibility
 
 - Script-driven training and evaluation
 - Environment-aware dataset paths (local or Kaggle)
 - Fixed model architecture and evaluation protocol
 - Containerized deployment using Docker
-
-
 
 ## Repository Structure
 
@@ -70,8 +61,6 @@ medical-image-classification/
 └── Dockerfile
 
 
----
-
 ## Results
 
 The model was trained on the full Chest X-Ray Pneumonia dataset using GPU acceleration.
@@ -85,22 +74,17 @@ Evaluation was performed on a held-out test set.
 
 High recall was intentionally prioritized to minimize false negatives, which is critical in medical screening applications.
 
----
 
 ## Design Decisions
 
 Detailed architectural and experimental design choices are documented in  
 [`docs/design.md`](docs/design.md).
 
----
 
 ## Running the Project
 
-### Option 1 — Kaggle (recommended for full dataset)
-
 The dataset is automatically mounted at:
 /kaggle/input/chest-xray-pneumonia/chest_xray
-
 
 Run:
 ```bash
