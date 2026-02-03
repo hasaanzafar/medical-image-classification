@@ -4,7 +4,6 @@ This document records the major design choices made in this project, along with 
 
 The goal is not only performance, but clarity, reproducibility, and robustness in a medical imaging context.
 
----
 
 ## Dataset Choice
 
@@ -16,7 +15,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Class imbalance reflects real-world medical data
 - Folder-based structure integrates well with PyTorch `ImageFolder`
 
----
 
 ## Image Resolution
 
@@ -27,7 +25,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Enables transfer learning if needed
 - Balances spatial detail with computational efficiency
 
----
 
 ## Data Augmentation Strategy
 
@@ -39,7 +36,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Preserves medical realism
 - Avoids unrealistic transformations (e.g., rotations, color jitter)
 
----
 
 ## Normalization
 
@@ -49,7 +45,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Ensures compatibility with pretrained CNN backbones
 - Standard practice in medical imaging transfer learning
 
----
 
 ## Data Pipeline Design
 
@@ -63,7 +58,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Guarantees reproducibility
 - Keeps repository lightweight
 
----
 
 ## Evaluation Metrics
 
@@ -77,7 +71,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Accuracy alone is insufficient for imbalanced medical datasets
 - Recall is especially important in clinical contexts
 
----
 
 ## Reproducibility Measures
 
@@ -86,8 +79,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Explicit dependency versions
   
 
----
----
 
 ## Model Architecture
 
@@ -103,7 +94,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Batch normalization after each convolution
 - Global average pooling instead of fully connected layers
 
----
 
 ## Training Strategy
 
@@ -116,7 +106,6 @@ The goal is not only performance, but clarity, reproducibility, and robustness i
 - Adam adapts learning rates for faster convergence
 - Fixed random seed ensures reproducibility across runs
 
----
 ## Evaluation Strategy
 
 **Metrics used:**
