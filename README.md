@@ -88,11 +88,11 @@ Once running, the API documentation is available at:
 
 ## Example API Usage:
 
--Endpoint: POST /predict
+- Endpoint: POST /predict
 
--Input: Chest X-ray image file
+- Input: Chest X-ray image file
 
--Output
+- Output
 
 {
   "prediction": "PNEUMONIA",
@@ -100,14 +100,12 @@ Once running, the API documentation is available at:
 }
 
 
+
 This deployment demonstrates:
 
--Separation of training and inference
-
--Consistent preprocessing across environments
-
--Model inference exposed via a REST API
-
--Reproducible deployment using Docker
+- Separation of training and inference
+- Consistent preprocessing across environments
+- Model inference exposed via a REST API
+- Reproducible deployment using Docker
 
 Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
