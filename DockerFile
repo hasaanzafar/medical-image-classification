@@ -1,25 +1,19 @@
 FROM python:3.10-slim
 
-# Prevent Python buffering
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
 WORKDIR /app
 
-# Copy requirements first (cache-friendly)
-COPY app/requirements.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+# Install only runtime dependencies (no build-essential)
+RUN pip install --no-cache-dir \
+    fastapi \
+    uvicorn \
+    torch \
+    torchvision \
+    pillow
 
 # Copy application code
 COPY app/ app/
-
-# Copy trained model checkpoint
 COPY model.pth .
 
 EXPOSE 8000
 
-# Run FastAPI app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
