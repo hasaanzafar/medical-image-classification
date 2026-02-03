@@ -110,3 +110,10 @@ This deployment demonstrates:
 - Reproducible deployment using Docker
 
 Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
+
+## Health Check:
+
+GET /health → {"status": "ok"}
+
+Automated testing and Docker builds are enforced using GitHub Actions.
+
