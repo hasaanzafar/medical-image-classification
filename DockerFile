@@ -2,8 +2,10 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+# Download the trained model from GitHub Releases
+ADD https://github.com/hasaanzafar/medical-image-classification/releases/download/v1.0/model.pth /app/model.pth
+
 COPY app/ app/
-COPY model.pth .
 COPY app/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
