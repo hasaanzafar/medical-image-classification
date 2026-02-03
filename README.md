@@ -1,19 +1,15 @@
-You can paste this as-is into README.md.
-
 # Medical Image Classification
 
 This repository contains an end-to-end deep learning pipeline for medical image classification using convolutional neural networks (CNNs), covering **model training, evaluation, and deployment as a containerized inference service**.
 
 The project emphasizes **robust evaluation, reproducibility, and practical deployment readiness**, rather than optimizing for accuracy alone.
 
----
 
 ## Motivation
 
 Medical imaging datasets are often class-imbalanced, and false negatives can carry high real-world cost.
 This project explores how architectural choices, transfer learning, and evaluation metrics impact performance in a medical screening context, with a deliberate focus on **high recall for critical classes**.
 
----
 
 ## Dataset
 
@@ -24,15 +20,10 @@ https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 Due to dataset size, raw images are **not included** in this repository.
 
 Expected directory structure:
-
-
 chest_xray/
-├── train/
-├── val/
-└── test/
-
-
----
+train/
+val/
+test/
 
 ## Approach
 
@@ -42,7 +33,6 @@ chest_xray/
 - Evaluation using accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrices
 - Deployment of the trained model as a RESTful inference service using FastAPI
 
----
 
 ## Reproducibility
 
@@ -51,31 +41,10 @@ chest_xray/
 - Fixed model architecture and evaluation protocol
 - Containerized deployment using Docker for reproducible inference
 
----
 
 ## Repository Structure
+<img width="239" height="448" alt="image" src="https://github.com/user-attachments/assets/f8a21ce7-bd28-4075-875a-54ba33b42e1c" />
 
-
-
-medical-image-classification/
-├── README.md
-├── src/
-│ ├── datasets.py
-│ ├── model.py
-│ ├── train.py
-│ └── evaluate.py
-├── app/
-│ ├── main.py
-│ └── requirements.txt
-├── docs/
-│ └── design.md
-├── figures/
-│ ├── confusion_matrix.png
-│ └── roc_curve.png
-└── Dockerfile
-
-
----
 
 ## Results
 
@@ -90,81 +59,34 @@ Evaluation was performed on a held-out test set.
 
 High recall was intentionally prioritized to minimize false negatives, which is critical in medical screening applications.
 
----
 
 ## Design Decisions
 
 Detailed architectural and experimental design choices are documented in  
 [`docs/design.md`](docs/design.md).
 
----
 
 ## Running the Project
 
-### Option 1 — Kaggle (recommended for full dataset)
-
 When using Kaggle, the dataset is automatically mounted at:
-
-
 /kaggle/input/chest-xray-pneumonia/chest_xray
 
-
-Run:
-```bash
-python src/train.py
-python src/evaluate.py
-
-Option 2 — Local Training
-
-Download the dataset from Kaggle
-
-Set the dataset path:
-
-export DATA_ROOT=/path/to/chest_xray
-
-
-Run:
-
-python src/train.py
-python src/evaluate.py
-
-Model Deployment (FastAPI + Docker Inference Service)
+## Model Deployment (FastAPI + Docker Inference Service)
 
 The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker.
 The service loads the trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
 
 Build Docker Image
-docker build -t medical-image-classifier .
+docker build -t medical-image-classifier
 
 Run Inference Service
 docker run -p 8000:8000 medical-image-classifier
 
-Example API Usage
-
-Endpoint
-
-POST /predict
-
-
-Input
-Chest X-ray image file
-
-Output
-
-{
-  "prediction": "PNEUMONIA",
-  "confidence": 0.93
-}
-
-
 This deployment demonstrates:
-
 Consistent preprocessing between training and inference
-
 Model loading and inference via a REST API
-
 Environment reproducibility through containerization
 
 Notes
-
 This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
+
