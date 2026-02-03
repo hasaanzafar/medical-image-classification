@@ -72,7 +72,7 @@ When using Kaggle, the dataset is automatically mounted at:
 
 The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker. The service loads a frozen trained PyTorch model, applies the same preprocessing pipeline used during training, and exposes an HTTP endpoint for image-based predictions.
 
-This deployment is designed to demonstrate deployment readiness, reproducibility, and clean separation between training and inference
+This deployment demonstrates clean separation between training and inference, reproducibility, and deployment readiness.
 
 ## Local Deployment (Docker)
 
@@ -109,11 +109,11 @@ This deployment demonstrates:
 - Model inference exposed via a REST API
 - Reproducible deployment using Docker
 
-Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
-
 ## Health Check:
 
 GET /health → {"status": "ok"}
 
 Automated testing and Docker builds are enforced using GitHub Actions.
+
+Note: This deployment is intended as a technical demonstration of ML deployment readiness and is not a production medical diagnostic system.
 
