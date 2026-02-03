@@ -1,15 +1,26 @@
+# Base image
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-# Download the trained model from GitHub Releases
-ADD https://github.com/hasaanzafar/medical-image-classification/releases/download/v1.0/model.pth /app/model.pth
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
+# Copy application code
 COPY app/ app/
-COPY app/requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Download trained model from GitHub Releases
+RUN wget -O model.pth \
+    https://github.com/hasaanzafar/medical-image-classification/releases/download/v1.0/model.pth
 
+# Install Python dependencies
+RUN pip install --no-cache-dir -r app/requirements.txt
+
+# Expose application port
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run the application
+CMD ["python", "app/main.py"]
