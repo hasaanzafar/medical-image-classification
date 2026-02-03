@@ -39,7 +39,10 @@ Due to dataset size, raw images are **not included** in this repository.
 
 
 ## Repository Structure
-<img width="239" height="448" alt="image" src="https://github.com/user-attachments/assets/f8a21ce7-bd28-4075-875a-54ba33b42e1c" />
+<img width="192" height="557" alt="image" src="https://github.com/user-attachments/assets/d4b06e5a-d264-4f63-af11-88c0bfb87bf5" />
+<img width="192" height="557" alt="image" src="https://github.com/user-attachments/assets/d4b06e5a-d264-4f63-af11-88c0bfb87bf5" />
+
+
 
 
 ## Results
