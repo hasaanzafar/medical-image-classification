@@ -19,11 +19,7 @@ https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 
 Due to dataset size, raw images are **not included** in this repository.
 
-Expected directory structure:
-chest_xray/
-train/
-val/
-test/
+<img width="128" height="115" alt="image" src="https://github.com/user-attachments/assets/b29d9062-2d84-4c5e-a3bc-23e3ec7df4be" />
 
 ## Approach
 
@@ -69,24 +65,32 @@ Detailed architectural and experimental design choices are documented in
 ## Running the Project
 
 When using Kaggle, the dataset is automatically mounted at:
+
 /kaggle/input/chest-xray-pneumonia/chest_xray
 
 ## Model Deployment (FastAPI + Docker Inference Service)
 
 The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker.
+
 The service loads the trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
 
 Build Docker Image
+
 docker build -t medical-image-classifier
 
 Run Inference Service
+
 docker run -p 8000:8000 medical-image-classifier
 
 This deployment demonstrates:
+
 Consistent preprocessing between training and inference
+
 Model loading and inference via a REST API
+
 Environment reproducibility through containerization
 
-Notes
+Note
+
 This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
 
