@@ -76,19 +76,17 @@ The service loads the trained model, applies the same preprocessing used during 
 
 ## Build Docker Image
 
-docker build -t medical-image-classifier
+docker build -t medical-image-classifier .
 
 ## Run Inference Service
 
 docker run -p 8000:8000 medical-image-classifier
 
-## This deployment demonstrates:
+This deployment demonstrates:
 
 - Consistent preprocessing between training and inference
 - Model loading and inference via a REST API
 - Environment reproducibility through containerization
 
-## Note
-
-This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
+Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
 
