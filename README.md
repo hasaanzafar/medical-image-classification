@@ -68,25 +68,50 @@ When using Kaggle, the dataset is automatically mounted at:
 
 /kaggle/input/chest-xray-pneumonia/chest_xray
 
-## Model Deployment (FastAPI + Docker Inference Service)
+Model Deployment (FastAPI + Docker)
 
 The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker.
+The service loads a frozen trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
 
-The service loads the trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
+Local Deployment (Docker)
 
-## Build Docker Image
+Build the Docker image:
 
 docker build -t medical-image-classifier .
 
-## Run Inference Service
+
+Run the inference service:
 
 docker run -p 8000:8000 medical-image-classifier
 
+
+Once running, the API documentation is available at:
+
+http://localhost:8000/docs
+
+Example API Usage
+
+Endpoint
+
+POST /predict
+
+
+Input
+Chest X-ray image file
+
+Output
+
+{
+  "prediction": "PNEUMONIA",
+  "confidence": 0.93
+}
+
+
 This deployment demonstrates:
 
-- Consistent preprocessing between training and inference
-- Model loading and inference via a REST API
-- Environment reproducibility through containerization
+-Separation of training and inference
+-Consistent preprocessing across environments
+-Model inference exposed via a REST API
+-Reproducible deployment using Docker
 
-Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
-
+Notes: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
