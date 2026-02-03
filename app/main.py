@@ -7,6 +7,10 @@ import torch.nn as nn
 import io
 
 app = FastAPI(title="Medical Image Classifier")
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 
 # -------------------- Model Loading --------------------
 def load_model():
