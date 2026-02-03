@@ -1,36 +1,76 @@
 # Medical Image Classification
 
-This repository contains an end-to-end deep learning pipeline for medical image classification using convolutional neural networks (CNNs).
+This repository contains an end-to-end deep learning pipeline for medical image classification using convolutional neural networks (CNNs), including **model training, evaluation, and deployment**.
 
-The project focuses on model design, evaluation, and reproducibility rather than just achieving high accuracy.
+The project emphasizes **robust evaluation, reproducibility, and practical deployment considerations**, rather than optimizing for accuracy alone.
+
+
 
 ## Motivation
 
-Medical imaging datasets are often limited in size and class-imbalanced.
-This project explores how architectural choices, data augmentation, and evaluation metrics affect classification performance.
+Medical imaging datasets are often class-imbalanced, and false negatives can carry high real-world cost.
+This project explores how architectural choices, transfer learning, and evaluation metrics impact performance in a medical screening context, with an emphasis on **high recall for critical classes**.
+
+
 
 ## Dataset
 
-The pipeline supports publicly available medical imaging datasets (e.g., chest X-ray, histopathology, or MRI datasets).
-Raw images are not included due to size constraints.
+This project uses the **Chest X-Ray Images (Pneumonia)** dataset:
+
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+
+Due to dataset size, raw images are **not included** in this repository.
+
+Expected directory structure:
+
+chest_xray/
+├── train/
+├── val/
+└── test/
+
+
+
 
 ## Approach
 
-- Data preprocessing and normalization
-- CNN-based image classification using PyTorch
-- Experiment tracking with MLflow
-- Model evaluation using accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrices
+- Image preprocessing and normalization
+- CNN-based classification using PyTorch
+- Transfer learning with a pretrained ResNet-18 backbone
+- Evaluation using accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrices
+- Model deployment using FastAPI for inference
+
+
 
 ## Reproducibility
 
-- Fixed random seeds
 - Script-driven training and evaluation
-- Dockerized environment (optional)
+- Environment-aware dataset paths (local or Kaggle)
+- Fixed model architecture and evaluation protocol
+- Containerized deployment using Docker
+
+
 
 ## Repository Structure
 
-(Structure diagram here)
+medical-image-classification/
+├── README.md
+├── src/
+│ ├── datasets.py
+│ ├── model.py
+│ ├── train.py
+│ └── evaluate.py
+├── app/
+│ ├── main.py
+│ └── requirements.txt
+├── docs/
+│ └── design.md
+├── figures/
+│ ├── confusion_matrix.png
+│ └── roc_curve.png
+└── Dockerfile
 
+
+---
 
 ## Results
 
@@ -43,24 +83,28 @@ Evaluation was performed on a held-out test set.
 - F1-score (Pneumonia): 88%
 - ROC-AUC: 0.95
 
-High recall was prioritized to minimize false negatives, which is critical in medical screening tasks.
+High recall was intentionally prioritized to minimize false negatives, which is critical in medical screening applications.
 
+---
 
 ## Design Decisions
 
 Detailed architectural and experimental design choices are documented in  
 [`docs/design.md`](docs/design.md).
 
-## Dataset
+---
 
-This project uses the **Chest X-Ray Images (Pneumonia)** dataset:
+## Running the Project
 
-https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+### Option 1 — Kaggle (recommended for full dataset)
 
-Due to size constraints, raw images are not included in this repository.
+The dataset is automatically mounted at:
+/kaggle/input/chest-xray-pneumonia/chest_xray
 
-To reproduce results:
-1. Download the dataset from Kaggle
-2. Extract it into `data/raw/chest_xray/`
-3. Run `train.py` and `evaluate.py`
+
+Run:
+```bash
+python src/train.py
+python src/evaluate.py
+
 
