@@ -74,23 +74,21 @@ The trained model is deployed as a lightweight RESTful inference service using F
 
 The service loads the trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
 
-Build Docker Image
+## Build Docker Image
 
 docker build -t medical-image-classifier
 
-Run Inference Service
+## Run Inference Service
 
 docker run -p 8000:8000 medical-image-classifier
 
-This deployment demonstrates:
+## This deployment demonstrates:
 
-Consistent preprocessing between training and inference
+- Consistent preprocessing between training and inference
+- Model loading and inference via a REST API
+- Environment reproducibility through containerization
 
-Model loading and inference via a REST API
-
-Environment reproducibility through containerization
-
-Note
+## Note
 
 This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
 
