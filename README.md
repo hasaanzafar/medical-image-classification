@@ -31,9 +31,20 @@ Raw images are not included due to size constraints.
 
 (Structure diagram here)
 
+
 ## Results
 
-Detailed quantitative and qualitative analysis provided in notebooks and figures.
+The model was trained on the full Chest X-Ray Pneumonia dataset using GPU acceleration.
+Evaluation was performed on a held-out test set.
+
+- Accuracy: 83%
+- Precision (Pneumonia): 80%
+- Recall (Pneumonia): 98%
+- F1-score (Pneumonia): 88%
+- ROC-AUC: 0.95
+
+High recall was prioritized to minimize false negatives, which is critical in medical screening tasks.
+
 
 ## Design Decisions
 
