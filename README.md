@@ -70,8 +70,9 @@ When using Kaggle, the dataset is automatically mounted at:
 
 ## Model Deployment (FastAPI + Docker)
 
-The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker.
-The service loads a frozen trained model, applies the same preprocessing used during training, and exposes an HTTP endpoint for image-based predictions.
+The trained model is deployed as a lightweight RESTful inference service using FastAPI and Docker. The service loads a frozen trained PyTorch model, applies the same preprocessing pipeline used during training, and exposes an HTTP endpoint for image-based predictions.
+
+This deployment is designed to demonstrate deployment readiness, reproducibility, and clean separation between training and inference
 
 ## Local Deployment (Docker)
 
@@ -103,7 +104,7 @@ Once running, the API documentation is available at:
 
 This deployment demonstrates:
 
-- Separation of training and inference
+- Separation of training and inference code
 - Consistent preprocessing across environments
 - Model inference exposed via a REST API
 - Reproducible deployment using Docker
