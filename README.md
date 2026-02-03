@@ -86,13 +86,13 @@ Run the inference service:
 Once running, the API documentation is available at: 
 - http://localhost:8000/docs
 
-Example API Usage:
+## Example API Usage:
 
-Endpoint: POST /predict
+-Endpoint: POST /predict
 
-Input: Chest X-ray image file
+-Input: Chest X-ray image file
 
-Output
+-Output
 
 {
   "prediction": "PNEUMONIA",
@@ -103,8 +103,11 @@ Output
 This deployment demonstrates:
 
 -Separation of training and inference
+
 -Consistent preprocessing across environments
+
 -Model inference exposed via a REST API
+
 -Reproducible deployment using Docker
 
-Notes: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
+Note: This deployment is intended as a demonstration of deployment readiness and is not a production medical system.
